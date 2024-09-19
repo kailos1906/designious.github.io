@@ -168,7 +168,7 @@ nav ul li a:hover {
 .box:hover {
     background: rgba(0, 0, 0, 0.589);
     transition: all 400ms;
-    transform: translateY(-5%);
+    transform: translateY(-2%);
     transition: all 400ms;
     
 }
