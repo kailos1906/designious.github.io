@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=0.8,maxium-scale=0.8,minium-scale=0.8">
+    <link rel="icon" href="img/logo.png" class="icon">
+    <link rel="stylesheet" href="css\estilo_reporte.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Incluir el JavaScript de Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <title>Designio</title>
+</head>
+
+<body>
+    <div class="header-content">
+        <header>
+            <img src="img/Logo_logo.png" class="box-img-2">
+            <h1>Reportar</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="reportes.html">Reportar</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+            <div class="hide">
+                <i class="fa fa-bars" aria-hidden="true"></i> Menu
+            </div>
+        </nav>
+    </div>
+    <div class="content-content">
+        <section class="box">
+            <img src="img/logo_b.png" alt="" class="box-img">
+            <h2>Ubicacion</h2>
+            <form action="/enviar_formulario" method="POST">
+                <label class="formu" for="email">Municipio</label><br>
+                <input type="email" placeholder="Popayán" id="nombre" name="nombre" required><br><br>
+                <label class="formu" for="email">Descripcion</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <button class="botonlogin" type="submit">enviar </button>
+                <div id="map"></div>
+                <p>Coordenadas seleccionadas: <span id="coordinates"></span></p>
+            </form>
+        </section>
+    </div>
+    <!-- Aquí se mostrará el mapa -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    
+    <script>
+        // Crear el mapa y establecer la vista inicial
+        var map = L.map('map').setView([2.4419487973858405, -76.60622154183957], 13); // Coordenadas iniciales (Londres)
+
+        // Añadir la capa del mapa desde OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Añadir marcador al hacer clic en el mapa
+        var marker;
+        map.on('click', function (e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+
+            // Mostrar las coordenadas
+            document.getElementById('coordinates').textContent = "Latitud: " + lat + ", Longitud: " + lng;
+
+            // Si ya hay un marcador, removerlo
+            if (marker) {
+                map.removeLayer(marker);
+            }
+
+            // Añadir un nuevo marcador en las coordenadas seleccionadas
+            marker = L.marker([lat, lng]).addTo(map);
+        });
+    </script>
+    <script>
+        $(".hide").on('click', function () {
+            $("nav ul").toggle('slow'); s
+        })
+
+    </script>
+</body>
+
+</html>
