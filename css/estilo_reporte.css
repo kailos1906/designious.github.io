@@ -174,7 +174,7 @@ nav ul li a:hover {
 }
 
 .box:hover img {
-    transform: translateY(-20%);
+    transform: translateY(-10%);
   
 }
 
@@ -191,7 +191,7 @@ nav ul li a:hover {
 }
 
 .box:hover p {
-    transform: translateY(-30px);
+    transform: translateY(-8px);
 }
 
 .box:hover ul li a {
@@ -213,4 +213,10 @@ nav ul li a:hover {
             
             height: 300px; /* Altura del mapa */
             width: 390px;
+        }
+
+        textarea {
+            width: 350px;  /* Ancho fijo */
+            height: 50px; /* Altura fija */
+            resize: none;  /* Desactivar la capacidad de redimensionar */
         }
